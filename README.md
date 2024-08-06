@@ -1,3 +1,35 @@
+# phosphor-react-native-custom-duotone
+
+This is a custom fork to adapt the original icons to use custom colors and opacity when using duotone icons.
+
+This fork adds two new props:
+
+- **duotoneColor?**: `string` – Duotone fill color. Can be any CSS color string, including `hex`, `rgb`, `rgba`, `hsl`, `hsla`, named colors. Default value to black.
+- **duotoneOpacity?**: `number` – The opacity of the duotoneColor. Default value to 0.2.
+
+How to use:
+
+```tsx
+import React from 'react';
+import { View } from 'react-native';
+import { Horse, Heart, Cube } from 'phosphor-react-native';
+
+const App = () => {
+  return (
+    <View>
+      <Cube
+        color="teal"
+        weight="duotone"
+        duotoneColor="red"
+        duotoneOpacity={0.5}
+      />
+    </View>
+  );
+};
+```
+
+# Original README:
+
 <img src="/meta/phosphor-mark-tight-yellow.png" width="128" align="right" />
 
 # phosphor-react-native
@@ -49,11 +81,15 @@ const App = () => {
 ```
 
 ### Typescript support
+
 If you get this error...
+
 ```
 Property 'className' does not exist on type 'IntrinsicAttributes & IntrinsicClassAttributes<Svg> & Pick<Readonly<SvgProps>, "children" | "style" | ... 144 more ... | "fontVariationSettings"> & InexactPartial<...> & InexactPartial<...>'
 ```
+
 Add this code to your `global.d.ts` file
+
 ```ts
 import type { SvgProps as DefaultSvgProps } from 'react-native-svg';
 
@@ -120,12 +156,12 @@ In cases where tree shaking does not work (resulting in large bundle size), you 
 
 ```tsx
 // Javascript
-import Star from "phosphor-react-native/lib/commonjs/icons/Star";
+import Star from 'phosphor-react-native/lib/commonjs/icons/Star';
 
 // Typescript
 import Star from 'phosphor-react-native/src/icons/Star';
 
-<Star size="24px" />
+<Star size="24px" />;
 ```
 
 ## Related Projects
