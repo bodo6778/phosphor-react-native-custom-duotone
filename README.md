@@ -4,7 +4,7 @@ This is a custom fork to adapt the original icons to use custom colors and opaci
 
 This fork adds two new props:
 
-- **duotoneColor?**: `string` – Duotone fill color. Can be any CSS color string, including `hex`, `rgb`, `rgba`, `hsl`, `hsla`, named colors. Default value to black. ⚠️ This currently only works when the **colo** prop is not used, as **color** overrides the fill.
+- **duotoneColor?**: `string` – Duotone fill color. Can be any CSS color string, including `hex`, `rgb`, `rgba`, `hsl`, `hsla`, named colors. Default value to black. ⚠️ This currently only works when the **color** prop is not used, as **color** overrides the fill.
 - **duotoneOpacity?**: `number` – The opacity of the duotoneColor. Default value to 0.2.
 
 How to use:
