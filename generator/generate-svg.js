@@ -63,9 +63,10 @@ const generateIconWithWeight = (icon, weight) => {
       .replace('const', "import { IconProps } from '../lib'\n\nconst")
       .replace('props: SvgProps', 'props: IconProps')
       .replace(' xmlns="http://www.w3.org/2000/svg"', '')
+      .replace('<Svg ', '<Svg className="' + iconName + '__svg-icon-phosphor" ')
       .replace(
-        '<Svg ',
-        '<Svg className="' + iconName + '__svg-icon-phosphor" '
+        'opacity={0.2}',
+        'opacity={props.duotoneOpacity} fill={props.duotoneColor}'
       );
 
     if (weight === 'fill' || weight === 'duotone') {
@@ -131,13 +132,15 @@ import light from '../light/${componentFileName}'
 import regular from '../regular/${componentFileName}'
 import thin from '../thin/${componentFileName}'
 
-function ${componentName}({ weight, color, size, style, mirrored }: IconProps) {
+function ${componentName}({ weight, color, size, style, mirrored, duotoneColor, duotoneOpacity }: IconProps) {
   const {
     color: contextColor = '#000',
     size: contextSize = 24,
     weight: contextWeight = 'regular',
     mirrored: contextMirrored = false,
     style: contextStyle,
+    duotoneColor: contextDuotoneColor = '#000',
+    duotoneOpacity: contextDuotoneOpacity = 0.2,
   } = useContext(IconContext)
 
   const IconComponent = useMemo(() => {
@@ -161,6 +164,8 @@ function ${componentName}({ weight, color, size, style, mirrored }: IconProps) {
     <IconComponent
       color={color ?? contextColor}
       size={size ?? contextSize}
+      duotoneColor={duotoneColor ?? contextDuotoneColor}
+      duotoneOpacity={duotoneOpacity ?? contextDuotoneOpacity}
       style={[
         contextStyle,
         style,
