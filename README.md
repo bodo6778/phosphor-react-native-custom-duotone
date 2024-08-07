@@ -18,7 +18,6 @@ const App = () => {
   return (
     <View>
       <Cube
-        color="teal"
         weight="duotone"
         duotoneColor="red"
         duotoneOpacity={0.5}
